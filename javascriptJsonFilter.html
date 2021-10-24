@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Json Filter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Recent Blog Posts</h1>
+            <label for="search">
+                <input type="search" id="search" autocomplete="off" spellcheck="false"
+                    placeholder="Enter a search term">
+            </label>
+            <div class="post-container">
+                <article class="post">
+                    <div class="post__meta">
+                        <div class="post__tag--container">
+                            <span class="post__tag">postTag</span> <span class="post__tag">anotherPostTag</span>
+                        </div>
+                        <p class="post__date">Oct 20, 2021</p>
+                    </div>
+                    <h3 class="post__header">
+                        <a href="#">A post Header</a>
+                    </h3>
+                    <div class="post__author">
+                        <img class="post__author--avatar" width="55"
+                            src="https://cdn.fakercloud.com/avatars/garand_128.jpg" alt="Liza VonRueden">
+                        <div>
+                            <p class="post__author--name">Liza VonRueden</p>
+                            <p class="post__author--role"><small>Chief Identity Strategist</small></p>
+                        </div>
+                    </div>
+                    <p class="post__body">
+                        Some blog post body. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+                        sapiente ullam delectus eligendi atque nostrum?
+                    </p>
+                    <a href="#" class="btn">Read Post</a>
+                </article>
+            </div>
+            <button class="btn btn--view">View More Posts</button>
+        </div>
+    </main>
+</body>
+</html>
