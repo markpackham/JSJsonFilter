@@ -44,5 +44,14 @@
             <button class="btn btn--view">View More Posts</button>
         </div>
     </main>
+    <script defer src="./filter.js" type="module"></script>
+    <!-- skelton loading screen -->
+    <script>
+        (function loadSkelton() {
+            const skeletonCSS = ``;
+            const skelton = ``;
+            document.querySelector('.post-container').innerHTML = [skelton, skeletonCSS].join('');
+        })();
+    </script>
 </body>
 </html>
