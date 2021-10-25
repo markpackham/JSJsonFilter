@@ -190,3 +190,17 @@ a {
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 }
+
+.btn {
+    background-color: hsl(var(--accent1) / .96);
+    color: hsl(var(--accent2));
+    box-shadow: var(--box-sm);
+    padding: calc(var(--xsm) * .7) var(--md);
+    border-radius: var(--radius--sm);
+    width: max-content;
+    font-size: var(--sm);
+    letter-spacing: 0.015em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
