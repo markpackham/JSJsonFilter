@@ -204,3 +204,28 @@ a {
     cursor: pointer;
     transition: var(--transition);
 }
+
+.btn--view {
+    background-color: hsl(var(--accent1) / .5);
+    padding: var(--xsm) var(--md);
+}
+
+.btn:is(:hover, :focus) {
+    background-color: hsl(var(--accent1));
+    box-shadow: none;
+}
+
+/* media queries */
+@media only screen and (min-width: 768px) {
+    .post-container {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    }
+
+    :root {
+        --xlg: 3.157rem;
+        --lg: 2.369rem;
+        --md: 1.777rem;
+        --sm: 1.333rem;
+        --xsm: 1rem;
+    }
+}
