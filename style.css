@@ -165,3 +165,28 @@ a {
 .post__header a:is(:hover, :focus) {
     color: hsl(var(--text) /.9);
 }
+
+.post__author {
+    display: flex;
+    gap: var(--sm);
+    align-items: center;
+}
+
+.post__author--avatar {
+    border-radius: 50%;
+    box-shadow: var(--boxs-sm);
+}
+
+.post__author--role {
+    color: hsl(var(--accent1));
+}
+
+.post__body {
+    line-height: 1.4;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    max-height: 7.3rem;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
