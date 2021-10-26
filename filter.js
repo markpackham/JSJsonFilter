@@ -8,12 +8,6 @@ const search = document.querySelector('[type="search"]');
 const checkBox = document.querySelector("#caseCheck");
 let caseCheck = true;
 
-// change between ignoreing and paying attentiont to case for searches
-function changeCaseCheck() {
-  checkBox.checked ? (caseCheck = true) : (caseCheck = false);
-  filterPosts();
-}
-
 // present date in a user friendly format
 const returnPostDate = (date) =>
   `${
@@ -141,6 +135,12 @@ fetchPosts();
 function viewMorePosts() {
   maxDisplayLimit += POSTS_TO_SHOW;
   loadPosts();
+}
+
+// change between ignoring and paying attentiont to case for searches
+function changeCaseCheck() {
+  checkBox.checked ? (caseCheck = true) : (caseCheck = false);
+  filterPosts();
 }
 
 document.querySelector(".btn--view").addEventListener("click", viewMorePosts);
