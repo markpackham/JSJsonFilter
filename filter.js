@@ -97,5 +97,11 @@ async function fetchPosts() {
 fetchPosts();
 
 // update number of posts with button click
+function viewMorePosts() {
+  maxDisplayLimit += POSTS_TO_SHOW;
+  loadPosts();
+}
+
+document.querySelector(".btn--view").addEventListener("click", viewMorePosts);
 
 // filter for search
