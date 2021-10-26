@@ -65,11 +65,28 @@ function generatePost(post) {
 
 function loadPosts() {
   const frag = document.createDocumentFragment();
-  posts
+  filteredPosts
     .slice(0, maxDisplayLimit)
     .map((post) => frag.appendChild(generatePost(post)));
   postContainer.innerHTML = "";
   postContainer.appendChild(frag);
+}
+
+function filterPosts() {
+  const searchFilter = (post) =>
+    [
+      post.title,
+      post.summary,
+      post.user.name[0].firstName,
+      post.user.name[1].lastName,
+      post.meta.tags.map((t) => t).join(""),
+    ]
+      .join("")
+      .toLowerCase()
+      // .indexOf tells you how many things match something and how many don't which gives a -1
+      .indexOf(search.value.toLowerCase()) !== -1;
+  filteredPosts = posts.filter(searchFilter);
+  loadPosts();
 }
 
 // fetch & parse data
@@ -96,7 +113,7 @@ async function fetchPosts() {
 }
 fetchPosts();
 
-// update number of posts with button click
+// update number of posts with button click "View More Posts"
 function viewMorePosts() {
   maxDisplayLimit += POSTS_TO_SHOW;
   loadPosts();
@@ -105,3 +122,4 @@ function viewMorePosts() {
 document.querySelector(".btn--view").addEventListener("click", viewMorePosts);
 
 // filter for search
+search.addEventListener("keyup", filterPosts);
