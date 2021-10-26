@@ -10,11 +10,7 @@ let caseCheck = true;
 
 // change between ignoreing and paying attentiont to case for searches
 function changeCaseCheck() {
-  if (checkBox.checked) {
-    caseCheck = true;
-  } else {
-    caseCheck = false;
-  }
+  checkBox.checked ? (caseCheck = true) : (caseCheck = false);
   filterPosts();
 }
 
