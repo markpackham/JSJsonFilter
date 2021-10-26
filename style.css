@@ -73,6 +73,11 @@ a {
     text-decoration: none;
 }
 
+.check-case {
+    display: block;
+    margin: auto;
+}
+
 /* using webkit to mostly handle Safari users */
 [type="search"] {
     -webkit-appearance: none;

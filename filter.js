@@ -5,6 +5,17 @@ const POSTS_TO_SHOW = 8;
 let maxDisplayLimit = POSTS_TO_SHOW;
 const postContainer = document.querySelector(".post-container");
 const search = document.querySelector('[type="search"]');
+const checkBox = document.querySelector("#caseCheck");
+let caseCheck = true;
+
+// change between ignoreing and paying attentiont to case for searches
+function changeCaseCheck() {
+  if (checkBox.checked) {
+    caseCheck = true;
+  } else {
+    caseCheck = false;
+  }
+}
 
 // present date in a user friendly format
 const returnPostDate = (date) =>
@@ -73,19 +84,35 @@ function loadPosts() {
 }
 
 function filterPosts() {
-  const searchFilter = (post) =>
-    [
-      post.title,
-      post.summary,
-      post.user.name[0].firstName,
-      post.user.name[1].lastName,
-      post.meta.tags.map((t) => t).join(""),
-    ]
-      .join("")
-      .toLowerCase()
-      // .indexOf tells you how many things match something and how many don't which gives a -1
-      .indexOf(search.value.toLowerCase()) !== -1;
-  filteredPosts = posts.filter(searchFilter);
+  if (caseCheck) {
+    let searchFilter = (post) =>
+      [
+        post.title,
+        post.summary,
+        post.user.name[0].firstName,
+        post.user.name[1].lastName,
+        post.meta.tags.map((t) => t).join(""),
+      ]
+        .join("")
+        .toLowerCase()
+        // .indexOf tells you how many things match something and how many don't which gives a -1
+        .indexOf(search.value.toLowerCase()) !== -1;
+    filteredPosts = posts.filter(searchFilter);
+  } else {
+    let searchFilter = (post) =>
+      [
+        post.title,
+        post.summary,
+        post.user.name[0].firstName,
+        post.user.name[1].lastName,
+        post.meta.tags.map((t) => t).join(""),
+      ]
+        .join("")
+        // .indexOf tells you how many things match something and how many don't which gives a -1
+        .indexOf(search.value) !== -1;
+    filteredPosts = posts.filter(searchFilter);
+  }
+
   loadPosts();
 }
 
@@ -120,6 +147,7 @@ function viewMorePosts() {
 }
 
 document.querySelector(".btn--view").addEventListener("click", viewMorePosts);
+document.querySelector("#caseCheck").addEventListener("click", changeCaseCheck);
 
 // filter for search
 search.addEventListener("keyup", filterPosts);
