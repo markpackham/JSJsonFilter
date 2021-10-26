@@ -102,7 +102,7 @@ async function fetchPosts() {
       posts = data.sort(
         (a, b) => new Date(b.meta.date) - new Date(a.meta.date)
       );
-      loadPosts();
+      filteredPosts();
     })
     .catch((error) => {
       console.error(
