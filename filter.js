@@ -1,7 +1,7 @@
 // query selectors
 let posts = [];
 let filteredPosts = [];
-const POSTS_TO_SHOW = 6;
+const POSTS_TO_SHOW = 8;
 let maxDisplayLimit = POSTS_TO_SHOW;
 const postContainer = document.querySelector(".post-container");
 const search = document.querySelector('[type="search"]');
@@ -82,7 +82,9 @@ async function fetchPosts() {
       return response.json();
     })
     .then((data) => {
-      posts = data;
+      posts = data.sort(
+        (a, b) => new Date(b.meta.date) - new Date(a.meta.date)
+      );
       loadPosts();
     })
     .catch((error) => {
