@@ -15,6 +15,7 @@ function changeCaseCheck() {
   } else {
     caseCheck = false;
   }
+  filterPosts();
 }
 
 // present date in a user friendly format
