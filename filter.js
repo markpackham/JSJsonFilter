@@ -6,9 +6,29 @@ let maxDisplayLimit = POSTS_TO_SHOW;
 const postContainer = document.querySelector(".post-container");
 const search = document.querySelector('[type="search"]');
 
+// present date in a user friendly format
+const returnPostDate = (date) =>
+  `${
+    [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ][date.getMonth()]
+  } ${date.getDate()}, ${date.getFullYear()}`;
+
 // create cards and update UI
 function generatePost(post) {
   const article = document.createElement("article");
+
   article.classList.add("post");
   article.innerHTML = `
   <div class="post__meta">
